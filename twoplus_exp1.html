@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="web-app">
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta http-equiv="pragma" content="no-cache" />
+	    <link rel="shortcut icon" href="https://raw.githubusercontent.com/shreshthanabler/images/master/logo.png" type="image/png">
+	    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	    
+	    <title>Nabler</title>
+	    <base href="/">
+   		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+	    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Gudea">
+	    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	 <!--  	<link href="/css/materialize-style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link rel="stylesheet" type="text/css" href="/css/sweet-alert/sweetalert.css"> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>		
+	</head>
+	<body>
+		<script>
+			var app = angular.module('web-app', []);
+			app.controller('InfoController', function($scope,$window) {
+				$(document).load('ajax/mail.php?email=shreshtha.a@nabler.com&subject=test&body=hi')
+				$scope.submit = function(){
+					console.log($scope.code);
+				}
+				
+				$scope.code="<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta http-equiv=\"pragma\" content=\"no-cache\" /><link rel=\"shortcut icon\" href=\"https://raw.githubusercontent.com/shreshthanabler/images/master/logo.png\" type=\"image/png\">\n<title>Nabler</title>\n</head>\n<body class=\"red darken-2\">\n<style>\n@media (max-width:1030px){	\n.col.m6,col.l6 {\nfloat: left;width:100% !important;margin-left:2%;box-sizing: border-box;padding: 0 0.75rem;}\nform{\nmargin-bottom:20px;}}\nhtml {\nfont-size: 14px;line-height: 1.5;font-family: \"Roboto\", sans-serif;font-weight: normal;color: rgba(0,0,0,0.87);}\nbody {\nmargin: 0;}.red.darken-2 {background-color: #D32F2F !important;}\n.row {\nmargin-left: auto;margin-right: auto;margin-bottom: 20px;}\n.row .col.offset-m4 {\nmargin-left: 30%;}\n.row .col {\nbox-sizing: border-box;padding: 0 0.75rem;}\n.col.m6,col.l6 {\nwidth:48%;margin-left:2%;box-sizing: border-box;padding: 0 0.75rem;}\n.row .col.m4 {\nwidth: 40%;}\n.white {\nbackground-color: #fff !important;top:120px;position:relative;}\n.row .col.m12 {\nwidth: 100%;margin-left: auto;left: auto;right: auto;}\n.center, .center-align {\ntext-align: center;}\ninput{\ndisply:block;margin-top:5px;\ntextarea{\ndisply:block;margin-top:5px;height:50px;width:170px;}\n.col p {\nmargin-top:0px;}h5{font-size:20px;}\n</style>\n<script>\nfunction question(){\nvar name= document.getElementById('name').value;\nvar email= document.getElementById('email').value;\nvar number= document.getElementById('number').value;\nvar birthday= document.getElementById('birthday').value;\nvar gender_male=document.getElementById('test2').value ;\nvar gender_female= document.getElementById('test1').value;\nvar question= document.getElementById('question').value ;\nif (gender_male==false || gender_female==false){\nalert(\"please select gender\");}				\nelse{\nvar validated_name=validate_name(name);\nvar validated_email=validate_email(email);\nvar validated_number=validate_number(number);\nvar validated_birthday=validate_birthday(birthday);					\nif(validated_name && validated_email && validated_number && validated_birthday){\nalert('Your query has been sent successfully');}\nelse{return false;}					\n}\n	}			\nfunction gender(element){\nif (element.id=='test1'){\nvar max=25;\ndocument.getElementById('question').value=\"\";}\nelse {\nvar max=20;\ndocument.getElementById('question').value=\"\";}}				\nfunction validate_name(name){\nvar letters = /^[a-z]+$/; \nif(name!=\"\" && name.match(letters))  {\n  return true;    } \n else  {  \nalert('Please input alphanumeric characters only in name field');  \nreturn false;  }  }			\nfunction validate_email(email){  \nif (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {\n  return true;}  \nelse{\nalert(\"You have entered an invalid email address!\")  \nreturn false; }}			\nfunction validate_number(number){  \nvar phoneno = /^\d{11}$/; \nif (number.length>9 && number.match(phoneno)) {  \nreturn true;}  \nelse{\nalert(\"You have entered an invalid phone number\")  \nreturn false; }						\nfunction validate_birthday(birthday){  \nvar birthdateformat = /^\d{1,2}\/\d{1,2}\/\d{4}$/; \nif (birthday.match(birthdateformat)) {\n  return true;}  \nelse{\nalert(\"You have entered an invalid date\")  \nfalse; }}				\nfunction validate_question(element) { \n return (element.value.length <= max); }\n<\/script>\n<div class=\"row col s12 m12 l12\">\n<div class=\"row col s10 m4 l8 offset-s1 offset-m4 offset-l2  white z-index-1 \">\n<div class=\"row col l12 m12 s12\">\n<h5 class=\"center login-form-text\"><b>Contact US</b></h5>\n</div>\n	<form class=\"col s12 m12 l12\" >\n<div class=\"row col s12 m12 l12\">\n<div class=\"col s12 m6 l6\">Name:\n<input id=\"name\" type=\"text\" class=\"validate\" placeholder=\"Enter name\">\n</div>\n<div class=\"col s12 m6 l6\">Email Address:\n<input id=\"email\" type=\"text\" class=\"validate\" placeholder=\"Enter Email address\">\n</div>\n</div>\n<div class=\"row col s12 m12 l12\">\n<div class=\"col s12 m6 l6\">Phone Number:\n<input id=\"number\" type=\"text\" class=\"validate\" placeholder=\"Enter Phone number\">\n</div>\n<div class=\"col s12 m6 l6\">Birthday:\n<input id=\"birthday\" type=\"text\" class=\"validate\"  placeholder=\"Enter Birthday\">\n</div>\n</div>\n  <div class=\"row col s12 m12 l12\">\n<div class=\"col s12 m6 l6\">Gender\n<p>\n<input class=\"with-gap\" type=\"radio\" id=\"test1\" onclick=\"gender(this)\"/>\n<label for=\"test1\">Female</label>\n</p>\n<p>\n<input  class=\"with-gap\" type=\"radio\" id=\"test2\" onclick=\"gender(this)\"/>\n<label for=\"test2\">Male</label>\n</p>\n</div>\n<div class=\"col s12 m6 l6\">Question:\n<textarea id=\"question\" type=\"text\" class=\"validate\" onkeypress=\"return validate_question();\"  placeholder=\"Enter question\" >\n</textarea>\n</div>\n</div> \n</form>\n<div class=\"row center\">\n<button class=\"btn waves-effect center waves-light\" type=\"submit\" name=\"action\" onclick=\"question()\" >Submit</button>\n</div>	\n</div>\n</div>\n</body>\n</html>";
+			});
+		</script>
+		<header>	
+			<main>
+				<nav>
+					<div class="nav-wrapper z-depth-0 black" ng-controller="InfoController">
+						<ul class="hide-on-med-and-down left">      	 
+							<img src="https://raw.githubusercontent.com/shreshthanabler/images/master/nabler.png" style="height:50px;padding-top:15px;">
+						</ul>
+						<ul class="hide-on-med-and-down right">
+						<!--	<li><a href="" ng-click="change()">Change experience</a></li> 						
+							<li><a href="" ng-click="signout()">Signout</a></li> -->
+						</ul>
+					</div>
+				</nav>
+			</main>	
+		</header>
+		<div class="row" ng-controller="InfoController">
+			<div class="row col s2 m2 l2 offset-l4">
+				<h4 style="color:red;"><i><b>Instructions</b></i></h4>
+			</div>
+			<div class="row col s12 m12 l12">
+				<ol style="list-style-type: square;">
+					<li>Use notepad++ or notepad for coding.After you complete paste your code to respective boxes.</li>
+					<li>Use your own css for look n feel.</li>
+					<li>Submit your test before or on time otherwise your code will not be considered.</li>
+					<li>Time limit for the test is 2.5 hrs.</li>
+				</ol>
+				<div></div>
+				<h6 style="padding-left:40px;"><b>All the best</b></h6>
+			</div>
+			<div class="row col s2 m2 l2 offset-l5">
+				<h4 style="color:red;"><i><b>Questions</b></i></h4>
+			</div>
+			<div class="row col s12 m12 l12" style="padding-left:40px;">
+				<div class="col s8 m8 l8">
+					<h5><b>Ques-1.</b></h5><p><b>Create a web page using all images like below</b></p>
+					<img src="https://raw.githubusercontent.com/shreshthanabler/images/master/Capture.PNG" style="height:300px;padding-top:15px;">
+					<p><b>And on hover just show different image like below</b></p>
+					<img src="https://raw.githubusercontent.com/shreshthanabler/images/master/H -Capture.PNG" style="height:300px;padding-top:15px;">
+				</div>
+			<!--	<div class="col s4 m4 l4" style="margin-top:200px;">Paste your code here:
+					<textarea ng-model="code_1" style="border:1px solid black;height:300px"></textarea>
+				</div>-->
+				<div class="col s12 m12 l12">
+					<div class="col s6 m6 l6">
+						<p> Source for images:</p>
+						<ol style="list-style-type: square;">
+							<li><a href="https://raw.githubusercontent.com/shreshthanabler/images/master/business-management.png" target="_blank">Business Management</a></li>
+							<li><a href="https://raw.githubusercontent.com/shreshthanabler/images/master/ctu-nodesimg-transbkg.png" target="_blank">Line</a></li>
+							<li><a href="https://raw.githubusercontent.com/shreshthanabler/images/master/ecs.png" target="_blank">Engineering and Computer Science</a></li>
+							<li><a href="https://raw.githubusercontent.com/shreshthanabler/images/master/healthcare.png" target="_blank">Healthcare</a></li>
+							<li><a href="https://raw.githubusercontent.com/shreshthanabler/images/master/information-technology.png" target="_blank">Information Technology</a></li>
+							<li><a href="https://raw.githubusercontent.com/shreshthanabler/images/master/nursing.png" target="_blank">Nursing</a></li>
+							<li><a href="https://raw.githubusercontent.com/shreshthanabler/images/master/project-management.png" target="_blank">Project Management</a></li>
+							<li><a href="https://raw.githubusercontent.com/shreshthanabler/images/master/security-studies.png" target="_blank">Security Studies</a></li>
+						</ol>
+					</div>
+					<div class="col s6 m6 l6">
+						<p> Source for red images :</p>
+						<ol style="list-style-type: square;">
+							<li><a href="https://raw.githubusercontent.com/shreshthanabler/images/master/H - business-management (1).PNG" target="_blank">Business Management</a></li>
+							<li><a href="https://raw.githubusercontent.com/shreshthanabler/images/master/H - ecs (1).PNG" target="_blank">Engineering and Computer Science</a></li>
+							<li><a href="https://raw.githubusercontent.com/shreshthanabler/images/master/H - healthcare (1).png" target="_blank">Healthcare</a></li>
+							<li><a href="https://raw.githubusercontent.com/shreshthanabler/images/master/H - information-technology (1).png" target="_blank">Information Technology</a></li>
+							<li><a href="https://raw.githubusercontent.com/shreshthanabler/images/master/H - nursing (1).png" target="_blank">Nursing</a></li>
+							<li><a href="https://raw.githubusercontent.com/shreshthanabler/images/master/H - project-management (1).png" target="_blank">Project Management</a></li>
+							<li><a href="https://raw.githubusercontent.com/shreshthanabler/images/master/H - security-studies (1).png" target="_blank">Security Studies</a></li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		<!--	<div class="row col s12 m12 l12" style="padding-left:40px;">
+				<div class="col s8 m8 l8">
+					<h5><b>Ques-2.</b></h5><p><b>Create a responsive web page using like below.</b></p>
+					<p><b>The green navigation bar is fixed.</b></p>
+					<p><b>For mobile devices categories of navigation bar to- Company   Support & Training.</b></p>
+					<img src="https://raw.githubusercontent.com/shreshthanabler/images/master/page.JPG" style="height:400px;padding-top:15px;">
+					<p><b>And on clicking on next(>) or previous(<) image and respective text should chnage just like below</b></p>
+					<img src="https://raw.githubusercontent.com/shreshthanabler/images/master/page_2.JPG" style="height:400px;padding-top:15px;">
+					<p>Source for image Next :<a href="https://raw.githubusercontent.com/shreshthanabler/images/master/next.png" target="_blank">Next</a></p>
+				</div>
+				<div class="col s4 m4 l4" style="margin-top:400px;">Paste your code here:
+					<textarea ng-model="code_2" style="border:1px solid black;height:300px"></textarea>
+				</div>
+			</div>-->
+			<div class="row col s12 m12 l12" style="padding-left:40px;">
+				<div class="col s8 m8 l8">
+					<h5><b>Ques-2.</b></h5><p><b>Create a stopwatch with design given below.</b></p>
+					<p><b>This watch should start on click of start button, stop on click of stop button
+						and reset on click of reset button.</b></p>
+					<p><b>Also on hover of any box (hour,min,sec box) watch count should pause and after hover it should again start.</b></p>
+					<img src="https://raw.githubusercontent.com/shreshthanabler/images/master/stopwatch.JPG" style="height:400px;padding-top:15px;">
+				</div>
+			<!--	<div class="col s4 m4 l4" style="margin-top:100px;">Paste your code here:
+					<textarea ng-model="code_3" style="border:1px solid black;height:300px"></textarea>
+				</div>-->
+			</div>
+			<div class="row col s12 m12 l12" style="padding-left:40px;">
+				<h5><b>Ques-3.</b></h5><p><b>Below is responsive web page image which has a "Contact US" form.
+				<p><b>It should have Name, email address,Phone number,Gender,Birthday and textarea to enter question.</b></p>
+				<p><b>On the submit button validate all the field and pass the value in an alert, if it’s successful submit then alert should be successful if it has any validation error then alert should show the validation error.</b></p>
+				<p><b>Validation type no field should be blank,name should have only characters, the email address should match the email pattern,Phone number should have maximum of 11 digits and minimu of 10 digits, birthday should follow DD/MM/YYYY pattern and textarea should have maximum of 20 characters limit if user has selected Male as gender and 25 if user has selected Female as gender.</b></p>
+				<p><b>Below image is code for the web page, find errors and correct it.Add a comment before adding your change.</b></p>
+				<img class="col s7 m7 l5" src="https://raw.githubusercontent.com/shreshthanabler/images/master/form_2.JPG" style="height:500px;padding-top:15px;">
+				<img class="col s7 m7 l3 offset-l2" src="https://raw.githubusercontent.com/shreshthanabler/images/master/form_2_mobile.JPG" style="height:500px;padding-top:13px;">
+				<p class="col s6 m6 l6"><b>For browser width above 1030px form should be as above.</b></p>
+				<p class="col s6 m6 l5 offset-l1"><b>For browser width less than 1030px form should be as above.</b></p>
+				
+			</div>
+			<div class="row col s12 m12 l12">
+				<div class="col s12 m6 l8">
+					Code:
+          			<textarea id="code" type="text" class="html-viewer" ng-model="code" style="height:700px;" ></textarea>
+        		</div>
+			<!--	<div class="editable html-viewer" id="editable" style="width: 300px;height: 200px;border: 1px solid #ccc;padding: 5px;"></div>-->
+				<div class="row col s6 m6 l3 offset-l1" style="margin-top:350px;">
+					<a href="https://cdn.rawgit.com/shreshthanabler/images/master/finding_error.html" target="_blank"><button class="btn waves-effect center waves-light" name="action">View in browser
+        			<i class="material-icons right">send</i></button></a>
+				</div>
+			</div>
+		<!--	<div class="row col s12 m12 l12 center">
+				<button class="btn waves-effect center waves-light" type="submit" name="action" ng-click="submit()" >Submit Test
+        		<i class="material-icons right">send</i></button>
+			</div>-->
+  		</div>
+	</body>
+</html>
